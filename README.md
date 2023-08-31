@@ -4,7 +4,7 @@
 - It is part of the projects developed by the research group Optimization and Control of Distributed Systems
 - Use the Gazebo sim simulator in its garden version, in addition to the ros_gz_bridge package
 
-# ASV_Loyola_US_low_level
+# ASV_gazebo_UL
 
 ![](https://www.uloyola.es/templates/v6/images/isologo_loyola_principal.svg)
 
