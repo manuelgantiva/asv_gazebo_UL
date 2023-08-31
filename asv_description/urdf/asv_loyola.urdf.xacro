@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="asv_loyola" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Include dynamics macros -->
+  <xacro:include filename="$(find asv_description)/urdf/dynamics/asv_gazebo_dynamics_plugin.xacro" />
+  <xacro:include filename="$(find asv_description)/urdf/components/asv_gps.xacro"/>
+  <xacro:include filename="$(find asv_description)/urdf/components/asv_camera.xacro"/>
+  <xacro:include filename="$(find asv_description)/urdf/components/asv_imu.xacro"/>
+  <xacro:include filename="$(find asv_description)/urdf/components/asv_planar_lidar.xacro"/>
+  <xacro:include filename="$(find asv_description)/urdf/components/asv_p3d.xacro"/>
+  <xacro:include filename="base_asv.xacro" />
+
+  <!-- Attach hydrodynamics plugin -->
+  <xacro:asv_dynamics_gazebo name="asv_dynamics_plugin"/> 
+
+  <xacro:asv_camera update_rate="10" />
+  <xacro:asv_gps update_rate="10" />
+  <xacro:asv_imu update_rate="10" />
+  <xacro:asv_multibeam_laser update_rate="10" />
+  <xacro:asv_p3d update_rate="10" />
+
+
+</robot>

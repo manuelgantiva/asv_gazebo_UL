@@ -1,0 +1,83 @@
+# Visual Studio
+*.VC.db
+*.VC.opendb
+*.vscode/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.exp
+*.iobj
+*.ipdb
+*.pdb
+
+# Logs
+*.lastbuildstate
+*.tlog
+*.log
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+
+# Python cache files
+*.pyc
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
+
+# HTML
+*.html
+
+# Mac
+.DS_Store
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+

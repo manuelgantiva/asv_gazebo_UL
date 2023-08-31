@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="asv_collision.xacro" />
+  <xacro:include filename="asv_gazebo_thruster_config.xacro" />
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0017923 -0.068951 -0.012251"
+        rpy="0 0 ${pi/2}" />
+      <mass
+        value="22.538" />
+      <inertia
+        ixx="2.3241"
+        ixy="7.3937E-05"
+        ixz="-2.937E-05"
+        iyy="2.3956"
+        iyz="0.0089145"
+        izz="0.35269" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 ${pi/2}" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <visual name="join_right_gps">
+      <origin xyz="-0.225 -0.25  0.26" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.03 0.03 0.46" />
+      </geometry>
+      <material
+          name="">
+          <color
+            rgba="0.89 0.895 0.90 1" />
+        </material>
+    </visual>
+    <visual name="join_left_gps">
+      <origin xyz="-0.225 0.25 0.26" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.03 0.03 0.46" />
+      </geometry>
+      <material
+          name="">
+          <color
+            rgba="0.89 0.895 0.90 1" />
+        </material>
+    </visual>
+    <visual name="join_top_gps">
+      <origin xyz="-0.225 0.0 0.4" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <box size="0.03 0.51 0.03" />
+      </geometry>
+      <material
+          name="">
+          <color
+            rgba="0.89 0.895 0.90 1" />
+        </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 ${pi/2}" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="Motor_izquierda_link">
+    <inertial>
+      <origin
+        xyz="2.6163E-07 3.2915E-08 -0.017318"
+        rpy="0 0 0" />
+      <mass
+        value="0.0077395" />
+      <inertia
+        ixx="2.2066E-06"
+        ixy="-4.3612E-10"
+        ixz="1.6311E-11"
+        iyy="2.2085E-06"
+        iyz="4.3693E-11"
+        izz="3.2157E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/Motor_izquierda_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/Motor_izquierda_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="left_motor_joint"
+    type="continuous">
+    <origin
+      xyz="-0.44372 0.3375 -0.20667"
+      rpy="-1.5708 0.0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Motor_izquierda_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Motor_derecha_link">
+    <inertial>
+      <origin
+        xyz="6.1977E-07 1.7969E-08 -0.017318"
+        rpy="0 0 0" />
+      <mass
+        value="0.0077394" />
+      <inertia
+        ixx="2.2071E-06"
+        ixy="-1.1034E-10"
+        ixz="-4.0156E-11"
+        iyy="2.208E-06"
+        iyz="-1.4213E-11"
+        izz="3.2156E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/Motor_derecha_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asv_description/meshes/Motor_derecha_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_motor_joint"
+        type="continuous">
+        <origin
+        xyz="-0.44372 -0.3375 -0.20667"
+        rpy="-1.5708 0.0 -1.5708" />
+        <parent
+        link="base_link" />
+        <child
+        link="Motor_derecha_link" />
+        <axis
+        xyz="0 0 1" />
+        <limit
+        effort="100"
+        velocity="100" />
+        <dynamics
+        damping="0.1"
+        friction="0.1" />
+    </joint>
+    <xacro:asv_gazebo_thruster_config name="left" />
+    <xacro:asv_gazebo_thruster_config name="right" />
+
+     <gazebo>
+        <plugin
+            filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+        </plugin>
+    </gazebo>
+</robot>

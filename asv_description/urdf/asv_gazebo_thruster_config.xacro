@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<plugin xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro  name="asv_gazebo_thruster_config" params="name">
+  <gazebo>
+    <xacro:property name="x_uu" value="72.4" />
+    <xacro:property name="x_u" value="51.3" />
+    <xacro:property name="max_velocity_mps" value="7.71667" />
+
+    <plugin
+      filename="gz-sim-thruster-system"
+      name="gz::sim::systems::Thruster">
+      <namespace>asv_loyola</namespace>
+      <joint_name>${name}_motor_joint</joint_name>
+      <thrust_coefficient>0.004422</thrust_coefficient>
+      <fluid_density>1000</fluid_density>
+      <propeller_diameter>0.13</propeller_diameter>
+      <!-- cmd rad/s -->
+      <velocity_control>true</velocity_control>
+      <!-- max total thrust / 2 -->
+    </plugin>
+
+  </gazebo>
+  </xacro:macro>
+</plugin>
